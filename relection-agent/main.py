@@ -12,7 +12,6 @@ from chains import generate_chain, reflect_chain
 REFLECT  = "reflect"
 GENERATE = "generate"
 
-
 def generation_node(state: Sequence[BaseMessage]):
     return generate_chain.invoke({"messages": state})
 
@@ -29,7 +28,6 @@ def should_continue(state: List[BaseMessage]):
     if len(state) > 6:
         return END
     return REFLECT 
-
 
 builder.add_conditional_edges(GENERATE, should_continue)
 builder.add_edge(REFLECT, GENERATE)
@@ -54,3 +52,4 @@ if __name__ == '__main__':
 
 # python3 main.py 
 # source /Users/rajsingh/Library/Caches/pypoetry/virtualenvs/lang-graph-0gvFCOm1-py3.9/bin/activate
+# mermaid.live 
